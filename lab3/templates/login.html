@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-EN">
+
+<head>
+    <title>Login</title>
+</head>
+
+<body>
+
+    Login |
+
+    <a href="/create">Create</a> |
+
+    <a href="/list">List</a>
+
+    <p>{{ date }}</p>
+
+    <form action="/login" method="post">
+        <p>Username: <input name="user" type="text"></p>
+        <p>Password: <input name="password" type="text"></p>
+        <p><input type="submit" value="Login"></p>
+    </form>
+
+    <p style="color:Tomato;">{{ error }}</p>
+
+</body>
+
+</html>

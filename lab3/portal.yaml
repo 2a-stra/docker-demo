@@ -1,0 +1,28 @@
+version: '3'
+services:
+  redis-db:  # container name
+    image: redis:alpine
+    volumes:
+      - data-db:/data:rw
+
+  portal-app:  # container name
+    image: portal-app:2.0
+    environment:
+      - APP_PORT=8888
+    volumes:
+      - ./templates:/app/templates:ro
+    depends_on:
+      - redis-db
+
+  nginx:
+    image: nginx:alpine
+    ports: 
+      - 8000:8000
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - portal-app
+
+volumes:
+  data-db:
+    driver: local

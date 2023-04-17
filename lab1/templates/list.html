@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-EN">
+
+<head>
+    <title>List</title>
+</head>
+
+<body>
+
+    <a href="/login">Login</a> |
+
+    <a href="/create">Create</a> |
+
+    List
+
+    {% for user in users %}
+        <p> {{ user }} 
+            <form action="/delete" method="post">
+                <button name="user" value="{{ user }}" readonly>Delete</button>
+            </form>
+        </p> 
+    {% endfor %}
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-EN">
+
+<head>
+    <title>Create</title>
+</head>
+
+<body>
+
+    <a href="/login">Login</a> |
+
+    Create |
+
+    <a href="/list">List</a>
+
+    <p>{{ date }}</p>
+    <p>Create new user</p>
+
+    <form action="/create" method="post">
+        <p>Username: <input name="user" type="text"></p>
+        <p>Password: <input name="password" type="text"></p>
+        <p><input type="submit" value="Create"></p>
+    </form>
+
+    <p style="color:Tomato;">{{ error }}</p>
+
+</body>
+
+</html>

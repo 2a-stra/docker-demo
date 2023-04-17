@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-EN">
+
+<head>
+    <title>User</title>
+</head>
+
+<body>
+
+    <a href="/login">Login</a> |
+
+    <a href="/create">Create</a> |
+
+    <a href="/list">List</a>
+
+    <p style="color:limegreen;">Hello {{ user }}!</p>
+
+    <form action="/update" method="post">
+        <p>Username: <input name="user" type="text" value= "{{ user }}" readonly></p>
+        <p>Password: <input name="password" type="text" value= "{{ password }}"></p>
+        <p><input type="submit" value="Update"></p>
+    </form>
+
+</body>
+
+</html>
