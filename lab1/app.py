@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+import sys
+
 from flask import Flask
 from flask import request, render_template
 
@@ -6,8 +9,9 @@ import json
 import datetime
 
 APP_PORT = 8000
+REDIS_PORT = sys.argv[1]
 
-rdb = redis.Redis(host="localhost", port=3000)
+rdb = redis.Redis(host="localhost", port=REDIS_PORT)
 
 app = Flask(__name__)
 
