@@ -9,6 +9,7 @@ services:
     build: web
     environment:
       - APP_PORT=8888
+      - REDIS_HOST=redis-db
     volumes:
       - ./templates:/app/templates:ro
     depends_on:

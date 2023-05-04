@@ -6,11 +6,11 @@ import redis
 import json
 import datetime
 
-#REDIS_HOST = os.environ["REDIS_HOST"]
+REDIS_HOST = os.environ["REDIS_HOST"]
 #REDIS_PORT = os.environ["REDIS_PORT"]
 APP_PORT = os.environ["APP_PORT"]
 
-rdb = redis.Redis(host="redis-db", port=6379)
+rdb = redis.Redis(host=REDIS_HOST, port=6379)
 
 app = Flask(__name__)
 
