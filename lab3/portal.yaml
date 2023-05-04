@@ -6,7 +6,7 @@ services:
       - data-db:/data:rw
 
   portal-app:  # container name
-    image: portal-app:2.0
+    build: web
     environment:
       - APP_PORT=8888
     volumes:
@@ -26,3 +26,4 @@ services:
 volumes:
   data-db:
     driver: local
+
