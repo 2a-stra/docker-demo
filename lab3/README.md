@@ -51,17 +51,17 @@ git clone https://github.com/2a-stra/docker-demo.git
 cd docker-demo
 ```
 
-### 2. Измените имя папки `lab3` в папку с новым названием `docker-<name>`:
+### 2. Измените имя папки `lab3` на папку с новым названием `docker-<name>`:
 
 ```bash
 mv lab3 docker-<name>
 cd docker-<name>
 ```
 
+Это имя будет использоваться в именах сервисов.
+
 ### 3. Измените в файле `portal.yaml`:
 - Nginx host port 8000
-
-
 
 
 ## Практическое задание 2
@@ -93,13 +93,13 @@ docker network ls
 
 ```bash
 # Get users list
-curl localhost:8028/list
+curl localhost:8000/list
 
 # Create new user
-curl -X POST -d 'user=Alice&password=123' http://localhost:8028/create
+curl -X POST -d 'user=Alice&password=123' http://localhost:8000/create
 
 # Delete user
-curl -X POST -d 'user=Alice' http://localhost:8028/delete
+curl -X POST -d 'user=Alice' http://localhost:8000/delete
 ```
 
 ### 5. Остановите `docker-compose`:

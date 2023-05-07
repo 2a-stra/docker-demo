@@ -22,9 +22,9 @@ docker run -d --rm -p 8000:80 -v ${PWD}\starta\html:/usr/share/nginx/html --name
 
 - Windows Powershell: `${PWD}`
 
-- Windows absolute path with small `c`: `/c/Users/`
+- Windows absolute path with small "c": `/c/Users/`
 
-- Windows git-bash path with small `c`: `//c/Users/`
+- Windows git-bash path with small "c": `//c/Users/`
 
 - MacOS: `/Users/`
 
