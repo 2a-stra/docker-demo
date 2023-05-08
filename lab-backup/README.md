@@ -1,5 +1,7 @@
 # Backup and Restore images
 
+<img src="docker-commands1.png" alt="docker-commands1" width="680"/>
+
 ## Cохранить образ в файл tar:
 
 ```bash
