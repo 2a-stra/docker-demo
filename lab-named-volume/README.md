@@ -2,8 +2,6 @@
 
 <img src="named-volume.png" alt="named volume" width="1024"/>
 
-<img src="bind-mount.png" alt="bind-mount" width="480"/>
-
 
 ## Практическое задание
 
@@ -48,7 +46,7 @@ docker stop redis-db
 
 ## Общее файловое хранилище:
 
-<img src="shared-file-storage.png" alt="shared-file-storage" width="320"/>
+<img src="shared-file-storage.png" alt="shared-file-storage" width="480"/>
 
 ## Путь к файлам volume в Windows и MacOS 
 

@@ -2,6 +2,7 @@
 
 <img src="nginx-host-volume.png" alt="nginx host volume" width="1024"/>
 
+<img src="bind-mount.png" alt="bind-mount" width="480"/>
 
 ## Создайте тестовый файл index.html:
 
