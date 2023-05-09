@@ -43,9 +43,22 @@ portal-app:1.0
 docker inspect redis-db | grep IPAddress
 ```
 
-### 4. Проверьте работу приложения с базой данных:
+### 4. Проверьте работу приложения с базой данных через web-интерфейс:
 
 `http://localhost:8000`
+
+Или в консоли:
+
+```bash
+# Get users list
+curl localhost:8000/list
+
+# Create new user
+curl -X POST -d 'user=Alice&password=123' http://localhost:8000/create
+
+# Delete user
+curl -X POST -d 'user=Alice' http://localhost:8000/delete
+```
 
 ### 5. Запустите интерактивный терминал контейнера `portal-app` и проверьте переменные окружения env:
 

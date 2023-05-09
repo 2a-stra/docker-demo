@@ -7,12 +7,16 @@
 ### 1. Запустите контейнер nginx:
 
 ```bash
-docker run -d --rm -p 8000:80 --name web nginx:alpine
+docker run -d --rm -p <8000>:80 --name web-<> nginx:alpine
 ```
+
+Если порт 8000 занят на хосте выберете другой свободный порт.
 
 ### 2. Откройте страницу в браузере:
 
 `http://localhost:8000/`
+
+Или сделайте HTTP запрос из консоли:
 
 ```
 curl localhost:8000
@@ -57,6 +61,11 @@ C | файл или директория изменена
 
 ```bash
 docker commit web nginx-index:v1
+```
+
+Остановите контейнер и запустите новый их образа, в котором сохранены последние изменения:
+
+```bash
 docker stop web
 docker run -d --rm -p 8000:80 --name web2 nginx-index:v1
 ```
