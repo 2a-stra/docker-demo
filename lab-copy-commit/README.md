@@ -10,7 +10,7 @@
 docker run -d --rm -p <8000>:80 --name web-<> nginx:alpine
 ```
 
-Если порт 8000 занят на хосте выберете другой свободный порт.
+Если порт 8000 занят на хосте, то выберете другой свободный порт.
 
 ### 2. Откройте страницу в браузере:
 
@@ -22,7 +22,7 @@ docker run -d --rm -p <8000>:80 --name web-<> nginx:alpine
 curl localhost:8000
 ```
 
-### 3. Скопируйте index.html из контейнера «web» в локальную папку:
+### 3. Скопируйте `index.html` из контейнера `web` в локальную папку:
 
 ```bash
 docker cp web:/usr/share/nginx/html/index.html ./
@@ -30,7 +30,7 @@ docker cp web:/usr/share/nginx/html/index.html ./
 cat index.html
 ```
 
-### 4. Замените index.html и скопируйте его обратно в контейнер:
+### 4. Замените `index.html` и скопируйте его обратно в контейнер:
 
 ```bash
 echo "My test page for Nginx" > index.html

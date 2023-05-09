@@ -37,7 +37,7 @@ docker run -d --rm \
 portal-app:1.0
 ```
 
-Укажите IP-адреса контейнера `redis-db` в переменной REDIS_HOST:
+Укажите IP-адрес контейнера `redis-db` в переменной REDIS_HOST:
 
 ```bash
 docker inspect redis-db | grep IPAddress
