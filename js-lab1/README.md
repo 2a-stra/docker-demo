@@ -57,3 +57,5 @@ curl localhost:8000
 docker logs web
 docker top web
 ```
+
+[Source](https://github.com/docker/awesome-compose/tree/master/nginx-nodejs-redis)

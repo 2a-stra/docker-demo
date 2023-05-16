@@ -51,11 +51,11 @@ git clone https://github.com/2a-stra/docker-demo.git
 cd docker-demo
 ```
 
-### 2. Измените имя папки `lab3` на папку с новым названием `docker-<name>`:
+### 2. Измените имя папки `lab3` на папку с новым названием проекта `project-<name>`:
 
 ```bash
-mv lab3 docker-<name>
-cd docker-<name>
+mv lab3 project-<name>
+cd project-<name>
 ```
 
 Это имя будет использоваться в именах сервисов.
@@ -112,4 +112,69 @@ docker-compose -f portal.yaml down
 
 ```bash
 docker ps -a
+```
+
+## Практическое задание 3
+
+### 1. Запустите private repository (lab3.3).
+
+```bash
+docker run -d -p 5000:5000 --restart always --name registry registry:2
+```
+
+### 2. Добавляем имя приватного репозитория `localhost` к нашему образу:
+
+```bash
+docker tag <project-name>-portal-app localhost:5000/portal-app-<name>:2.0
+```
+
+### 3. Загружаем образ в наш репозиторий:
+
+```bash
+docker push localhost:5000/portal-app:2.0
+```
+
+Список образов в приватном репозитории:
+
+```bash
+curl -X GET http://localhost:5000/v2/_catalog
+```
+
+
+### 4. Удаляем образы с хоста:
+
+```bash
+docker rmi <project-name>-portal-app
+docker rmi localhost:5000/portal-app:2.0
+docker images
+```
+
+### 5. Запускаем контейнер используя образ из нашего приватного репозитория:
+
+Копируем `yaml` файл:
+
+```bash
+cp portal.yaml compose.yaml
+```
+
+Редактируем `compose.yaml` для использования контейнера из нашего репозитория:
+
+```yaml
+services:
+
+  portal-app:      # container name
+    image: localhost:5000/portal-app:2.0
+```
+
+Запускаем docker-compose:
+
+```bash
+docker-compose up -d
+```
+
+Проверяем список запущенных контейнеров и останавливаем их:
+
+```bash
+docker-compose ps
+docker-compose down
 ```
