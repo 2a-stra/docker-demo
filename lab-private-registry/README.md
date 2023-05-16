@@ -28,6 +28,13 @@ docker tag portal-app:1.0 localhost:5000/portal-app:1.0
 docker push localhost:5000/portal-app:1.0
 ```
 
+Список образов в приватном репозитории:
+
+```bash
+curl -X GET http://localhost:5000/v2/_catalog
+```
+
+
 ### 4. Удаляем образ с хоста:
 
 ```bash
@@ -62,3 +69,4 @@ services:
 ```
 
 Source (lab3): [portal-app](https://github.com/2a-stra/docker-demo/tree/main/lab3)
+
