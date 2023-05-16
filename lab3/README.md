@@ -116,7 +116,7 @@ docker ps -a
 
 ## Практическое задание 3
 
-### 1. Запустите private repository (lab3.3).
+### 1. Запустите приватный репозиторий (lab3.3).
 
 ```bash
 docker run -d -p 5000:5000 --restart always --name registry registry:2
@@ -138,6 +138,7 @@ docker push localhost:5000/portal-app:2.0
 
 ```bash
 curl -X GET http://localhost:5000/v2/_catalog
+curl -X GET http://localhost:5000/v2/portal-app/tags/list
 ```
 
 
