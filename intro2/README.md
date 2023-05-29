@@ -172,3 +172,7 @@ $ docker history node
 
 $ docker history alpine
 ```
+
+## Основные команды docker
+
+<img src="images/docker-commands.png" alt="docker-commands" width="600"/>

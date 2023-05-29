@@ -2,6 +2,15 @@
 
 <img src="js-web-app.png" alt="js-web-app" width="1024"/>
 
+## Сеть Docker network
+
+<img src="docker-network.png" alt="docker-network" width="480"/>
+
+```bash
+docker network ls
+docker network create network-<nickname>
+```
+
 ## Практическое задание
 
 ### 1. Создайте новый образ с веб-приложением:
