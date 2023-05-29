@@ -13,6 +13,13 @@ docker network create network-<nickname>
 
 ## Практическое задание
 
+### 0. Отредактируйте имя `host` в файле server.js
+
+```javascript
+  host: 'redis-db',
+  port: 6379
+```
+
 ### 1. Создайте новый образ с веб-приложением:
 
 ```bash
