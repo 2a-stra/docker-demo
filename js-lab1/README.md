@@ -36,11 +36,11 @@ docker run -d --rm \
 --net network-<> \
 redis:alpine redis-server --save 60 1
 ```
-### 3. Запустите контейнер `js-app`:
+### 3. Запустите контейнер `js-app` на порту `<8000>`:
 
 ```bash
 docker run -d --rm \
--p <8000>:5000 \
+-p 8000:5000 \
 --name web-<nickname> \
 --net network-<> \
 js-app-<nickname>:1.0
