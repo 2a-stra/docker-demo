@@ -54,32 +54,32 @@ docker container prune       # remove all stopped containers
 ### 1. Скачайте образ Redis DB
 
 ```bash
-$ docker pull redis:alpine
-$ docker images
+docker pull redis:alpine
+docker images
 ```
 
 ### 2. Запустите контейнер Redis
 ```bash 
-$ docker run -d --rm --name redis-<nickname> redis:alpine
-$ docker ps
+docker run -d --rm --name redis-<nickname> redis:alpine
+docker ps
 ```
 
 ### 3. Проверьте список процессов
 
 ```bash
-$ docker top redis-<nickname>
+docker top redis-<nickname>
 ```
 
 ### 4. Проверьте лог сообщений
 
 ```bash
-$ docker logs <container_name>
+docker logs <container_name>
 ```
 
 ### 5. Остановите контейнер
 
 ```bash
-$ docker stop redis-<nickname>
+docker stop redis-<nickname>
 ```
 
 ## Проброс портов (Port mapping)
@@ -94,27 +94,25 @@ docker run -d -p3001:6379 redis:6.2      # host port 3001
 
 ## Практическое задание 2
 
-### Запустите контейнер с пробросом портов:
+### Запустите контейнер с пробросом порта `<3000>`:
 
-```
+```bash
 docker run -d --rm \
--p3001:6379 \
+-p3000:6379 \
 --name redis-<nickname> \
 redis:alpine redis-server --save 60 1
 ```
 
-## Подключение к рабочему контейнеру
+## Подключение к shell рабочего контейнера
 
 ```bash
-docker run -d --rm \
--p3001:6379 \
---name redis-db \
-redis:alpine redis-server --save 60 1
+# winpty prefix (git-bash for windows10)
+docker exec -it <container id> sh      # interactive terminal
 
-# winpty prefix (git-bash for windows)
-docker exec -it <container id> /bin/sh      # interactive terminal
 > exit
 ```
+
+`<Ctrl>-d`    - отключиться от shell
 
 ### Консоль Redis DB
 
@@ -158,7 +156,7 @@ CMD `["<command>", "<parameter>"]`
 <img src="images/build_image.png" alt="build_image" width="480"/>
 
 ```bash
-$ docker build -t js-app-<nickname>:1.0 .
+docker build -t js-app-<nickname>:1.0 .
 ```
 
 Последний параметр в команде - точка ".", означает что `Dockerfile` находится в текущей директории.
@@ -166,11 +164,11 @@ $ docker build -t js-app-<nickname>:1.0 .
 ## Список слоев образа
 
 ```
-$ docker history js-app:1.0
+docker history js-app:1.0
 
-$ docker history node
+docker history node
 
-$ docker history alpine
+docker history alpine
 ```
 
 ## Основные команды docker
