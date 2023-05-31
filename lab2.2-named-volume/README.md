@@ -8,9 +8,10 @@
 ### 1. Создайте новый volume с именем `redis-data`:
 
 ```bash
-docker volume create redis-datadocker
+docker volume create redis-data
 
-volume ls
+docker volume ls
+
 docker volume inspect redis-data
 ```
 
