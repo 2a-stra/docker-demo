@@ -43,12 +43,12 @@ redis:alpine redis-server --save 60 1
 
 Используйте имя сети `network-<>` созданное на шаге 1.
 
-### 5. Запустите контейнер c именем `js-<nickname>` из созданного образа `js-app-<>` на порту `<8000>`:
+### 5. Запустите контейнер c именем `node-<nickname>` из созданного образа `js-app-<>` на порту `<8000>`:
 
 ```bash
 docker run -d --rm \
 -p 8000:5000 \
---name js-<nickname> \
+--name node-<nickname> \
 --net network-<> \
 js-app-<nickname>:1.0
 ```
@@ -68,7 +68,7 @@ curl localhost:8000
 ### 7. Подключитесь через интерактивный терминал к запущенному контейнеру:
 
 ```bash
-docker exec -it js-<> sh
+docker exec -it node-<> sh
 ```
 
 Проверьте содержимое рабочего каталога:
@@ -79,8 +79,8 @@ ls -l
 ### 8. Проверьте лог сообщений и список запущенных процессов:
 
 ```bash
-docker logs js-<>
-docker top js-<>
+docker logs node-<>
+docker top node-<>
 ```
 
 [Source](https://github.com/docker/awesome-compose/tree/master/nginx-nodejs-redis)
