@@ -6,21 +6,22 @@
 
 <img src="docker-network.png" alt="docker-network" width="480"/>
 
+## Практическое задание
+
+### 1. Создайте отдельную сеть для контейнеров
+
 ```bash
 docker network ls
 docker network create network-<nickname>
 ```
 
-## Практическое задание
-
-### 0. Отредактируйте имя `host` в файле server.js
+### 2. Отредактируйте имя `host` в файле `server.js`
 
 ```javascript
-  host: 'redis-db',
-  port: 6379
+  host: 'redis-<nickname>',
 ```
 
-### 1. Создайте новый образ с веб-приложением:
+### 3. Создайте новый образ с веб-приложением:
 
 ```bash
 docker build -t js-app-<nickname>:1.0 .
@@ -28,7 +29,10 @@ docker build -t js-app-<nickname>:1.0 .
 
 Последний параметр в команде - точка ".", означает что `Dockerfile` находится в текущей директории.
 
-### 2. Запустите контейнер `redis`:
+После создания новый образ должен появится в списке `docker images`.
+
+
+### 4. Запустите контейнер `redis-<>`:
 
 ```bash
 docker run -d --rm \
@@ -36,28 +40,22 @@ docker run -d --rm \
 --net network-<> \
 redis:alpine redis-server --save 60 1
 ```
-### 3. Запустите контейнер `js-app` на порту `<8000>`:
+
+Используйте имя сети `network-<>` созданное на шаге 1.
+
+### 5. Запустите контейнер c именем `js-<nickname>` из созданного образа `js-app-<>` на порту `<8000>`:
 
 ```bash
 docker run -d --rm \
 -p 8000:5000 \
---name web-<nickname> \
+--name js-<nickname> \
 --net network-<> \
 js-app-<nickname>:1.0
 ```
 
-### 4. Подключитесь через интерактивный терминал к запущенному контейнеру:
+Имя сети должно быть такое же как в предыдущем шаге.
 
-```bash
-docker exec -it web-<> sh
-```
-
-Проверьте содержимое рабочего каталога:
-```bash
-ls -l
-```
-
-### 5. Сделайте запрос к БД через веб-интерфейс:
+### 6. Сделайте запрос к БД через веб-интерфейс:
 
 `http://localhost:8000/`
 
@@ -67,11 +65,22 @@ ls -l
 curl localhost:8000
 ```
 
-### 6. Проверьте лог сообщений и список запущенных процессов:
+### 7. Подключитесь через интерактивный терминал к запущенному контейнеру:
 
 ```bash
-docker logs web
-docker top web
+docker exec -it js-<> sh
+```
+
+Проверьте содержимое рабочего каталога:
+```bash
+ls -l
+```
+
+### 8. Проверьте лог сообщений и список запущенных процессов:
+
+```bash
+docker logs js-<>
+docker top js-<>
 ```
 
 [Source](https://github.com/docker/awesome-compose/tree/master/nginx-nodejs-redis)
